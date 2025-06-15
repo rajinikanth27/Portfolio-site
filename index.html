@@ -4,180 +4,544 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rajinikanth Purugula | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background: linear-gradient(135deg, #eef2f3, #8e9eab);
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #333;
       line-height: 1.6;
       padding: 2rem;
+      min-height: 100vh;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       background: #fff;
+      padding: 0;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+      animation: slideUp 0.8s ease-out;
+      overflow: hidden;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .header-section {
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .header-section h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-horizontal {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-horizontal a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .contact-horizontal a:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .contact-horizontal span {
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+    }
+
+    .contact-horizontal i {
+      font-size: 1.1rem;
+    }
+
+    .content-wrapper {
+      padding: 2.5rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      color: #2c3e50;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #e74c3c, #f39c12);
+      border-radius: 2px;
+    }
+
+    .professional-summary {
+      background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+      color: white;
+      padding: 2.5rem;
+      margin: -2.5rem -2.5rem 2.5rem -2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .professional-summary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .professional-summary h2 {
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .professional-summary h2::after {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .professional-summary p {
+      position: relative;
+      z-index: 2;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .experience-group {
+      margin-bottom: 2.5rem;
       padding: 2rem;
-      border-radius: 12px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      border-left: 5px solid #e74c3c;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-group::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(231, 76, 60, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .experience-group:hover {
+      transform: translateX(5px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      animation: fadeIn 1s ease-in-out;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .experience-group p {
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
     }
-    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
-    .contact { text-align: center; margin-bottom: 2rem; }
-    .contact a { color: #0077cc; text-decoration: none; margin: 0 1rem; }
-    section { margin-bottom: 2rem; }
-    h2 { color: #444; margin-bottom: 1rem; }
-    ul { padding-left: 1.5rem; }
-    li { margin-bottom: 0.5rem; }
-    .highlight { font-weight: bold; }
-    .desc { margin-left: 1rem; margin-top: 0.25rem; font-size: 0.95rem; color: #555; }
+
+    .highlight {
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 1.1rem;
+    }
+
+    .desc {
+      margin-left: 1rem;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+      background: rgba(52, 152, 219, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 3px solid #3498db;
+    }
+
+    .experience-group ul {
+      list-style: none;
+      padding-left: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-group li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .experience-group li::before {
+      content: '▶';
+      position: absolute;
+      left: 0;
+      color: #e74c3c;
+      font-size: 0.8rem;
+    }
+
+    .projects-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .projects-section li {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border: 1px solid #e9ecef;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects-section li::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #3498db, #e74c3c);
+    }
+
+    .projects-section li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .projects-section .highlight {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 1.15rem;
+      color: #2c3e50;
+    }
+
+    .projects-section .desc {
+      margin-left: 0;
+      background: transparent;
+      padding: 0;
+      border: none;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .skills-section ul {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .skills-section li {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+      border-left: 4px solid #3498db;
+      transition: all 0.3s ease;
+    }
+
+    .skills-section li:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    }
+
+    .skills-section strong {
+      color: #2c3e50;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .education-section p {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-left: 4px solid #f39c12;
+      transition: all 0.3s ease;
+    }
+
+    .education-section p:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .education-section strong {
+      color: #2c3e50;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .header-section h1 {
+        font-size: 2.5rem;
+      }
+      
+      .contact-horizontal {
+        gap: 1rem;
+      }
+      
+      .contact-horizontal a {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+      
+      .content-wrapper {
+        padding: 1.5rem;
+      }
+      
+      .professional-summary {
+        margin: -1.5rem -1.5rem 2rem -1.5rem;
+        padding: 2rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      
+      .container {
+        box-shadow: none;
+        border-radius: 0;
+      }
+      
+      .header-section::before {
+        display: none;
+      }
+      
+      .professional-summary::before {
+        display: none;
+      }
+      
+      .experience-group::before {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
- <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <div class="container">
+    <div class="header-section">
+      <h1>Rajinikanth Purugula</h1>
+      <div class="contact-horizontal">
+        <a href="mailto:rajinikanthpurugula27@gmail.com">
+          <i class="fas fa-envelope"></i> rajinikanthpurugula27@gmail.com
+        </a>
+        <span>|</span>
+        <a href="tel:+14059924646">
+          <i class="fas fa-phone"></i> +1 (405) 992-4646
+        </a>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/rajinikanth-purugula-315b9a20a/" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </div>
 
-<style>
-  .contact-horizontal {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
+    <div class="content-wrapper">
+      <section class="professional-summary">
+        <h2>Professional Summary</h2>
+        <p>I'm a Data Analyst with over 4 years of experience designing and delivering cloud-native, full-stack data and analytics solutions across AWS, GCP, and Azure. I specialize in building high-performance ETL pipelines, real-time dashboards, and machine learning–powered scoring systems. My technical toolkit includes Python, Java, JavaScript (Node.js, React), and SQL, along with infrastructure tools like Terraform, Docker, and Kubernetes. I bring deep expertise in Power BI (DAX), Tableau, and advanced data visualization to support decision-making across departments. I'm highly proficient in machine learning techniques such as regression, clustering, and classification, and I apply statistical analysis and A/B testing to drive hypothesis-based insights. With strong grounding in Agile practices, data compliance (GDPR, IAM), and CI/CD automation, I strive to build secure, scalable, and high-impact data systems that align with business goals</p>
+      </section>
 
-  .contact-horizontal a {
-    text-decoration: none;
-    color: #000;
-    font-weight: 500;
-  }
-
-  .contact-horizontal i {
-    margin-right: 6px;
-  }
-</style>
-
-<div class="container">
-  <h1 style="text-align: center;">Rajinikanth Purugula</h1>
-
-  <div class="contact-horizontal">
-    <a href="mailto:rajinikanthpurugula27@gmail.com">
-      <i class="fas fa-envelope"></i> rajinikanthpurugula27@gmail.com
-    </a>
-    <span>|</span>
-    <a href="tel:+14059924646">
-      <i class="fas fa-phone"></i> +1 (405) 992-4646
-    </a>
-    <span>|</span>
-    <a href="https://www.linkedin.com/in/rajinikanth-purugula-315b9a20a/" target="_blank">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
-  </div>
-</div>
-
-
-    <section>
-      <h2>Professional Summary</h2>
-      <p> I’m a Data Analyst with over 4 years of experience designing and delivering cloud-native, full-stack data and analytics solutions across AWS, GCP, and Azure. I specialize in building high-performance ETL pipelines, real-time dashboards, and machine learning–powered scoring systems. My technical toolkit includes Python, Java, JavaScript (Node.js, React), and SQL, along with infrastructure tools like Terraform, Docker, and Kubernetes. I bring deep expertise in Power BI (DAX), Tableau, and advanced data visualization to support decision-making across departments. I’m highly proficient in machine learning techniques such as regression, clustering, and classification, and I apply statistical analysis and A/B testing to drive hypothesis-based insights. With strong grounding in Agile practices, data compliance (GDPR, IAM), and CI/CD automation, I strive to build secure, scalable, and high-impact data systems that align with business goals      </p>
-    </section>
-
-    <section>
-      <h2>Professional Experience</h2>
-      <ul>
-        <p><span class="highlight">Data Analyst – Entrepreneurs' Organization</span> (Apr 2024 – Present)</p>
-         <p> <span class="highlight">Project Overview:</span> </p>
+      <section>
+        <h2>Professional Experience</h2>
+        <div class="experience-group">
+          <p><span class="highlight">Data Analyst – Entrepreneurs' Organization</span> (Apr 2024 – Present)</p>
+          <p><span class="highlight">Project Overview:</span></p>
           <div class="desc">Led the development of a Google Cloud–based analytics platform to monitor lead performance, optimize conversion funnels, and support data-driven decision-making. Delivered predictive models, automated ETL pipelines, and secure reporting dashboards.</div>
           <span class="highlight">Key Contributions:</span>
-          <li>Designed and deployed Power BI dashboards with advanced DAX to visualize KPIs for executives.</li>
-      <li>Built scalable ETL pipelines using Cloud Composer to move data from GCS into Snowflake.</li>
-      <li>Automated Python-based data transformation workflows, reducing manual effort by 40%.</li>
-      <li>Developed lead scoring models with scikit-learn, decreasing acquisition costs by 15%.</li>
-      <li>Conducted A/B testing on lead prioritization strategies, boosting conversion rates by 12%.</li>
-      <li>Improved SQL performance through Snowflake partitioning and clustering.</li>
-      <li>Implemented GDPR-compliant data governance with role-based access, masking, and audit logging.</li>
-      <li>Authored detailed documentation for pipelines and KPIs to support onboarding and audits.</li>
-        </li>
-        <p><span class="highlight">Graduate TA – Oklahoma Christian University</span> (Jan 2023 – Apr 2024)</p>
+          <ul>
+            <li>Designed and deployed Power BI dashboards with advanced DAX to visualize KPIs for executives.</li>
+            <li>Built scalable ETL pipelines using Cloud Composer to move data from GCS into Snowflake.</li>
+            <li>Automated Python-based data transformation workflows, reducing manual effort by 40%.</li>
+            <li>Developed lead scoring models with scikit-learn, decreasing acquisition costs by 15%.</li>
+            <li>Conducted A/B testing on lead prioritization strategies, boosting conversion rates by 12%.</li>
+            <li>Improved SQL performance through Snowflake partitioning and clustering.</li>
+            <li>Implemented GDPR-compliant data governance with role-based access, masking, and audit logging.</li>
+            <li>Authored detailed documentation for pipelines and KPIs to support onboarding and audits.</li>
+          </ul>
+        </div>
+
+        <div class="experience-group">
+          <p><span class="highlight">Graduate TA – Oklahoma Christian University</span> (Jan 2023 – Apr 2024)</p>
           <p><span class="highlight">Key Contributions:</span></p>
-          <li>Mentored students in Python (pandas, matplotlib) and big data tools like Hadoop and Spark</li>
-      <li>Conducted workshops on R, SAS, SPSS, covering regression, classification, and forecasting</li>
-      <li>emo dashboards in Tableau for effective data storytelling</li>
-      <li>Analyzed performance data using Excel (VLOOKUP, Pivot Tables) and MATLAB, driving a 15% improvement in academic outcomes</li>
-      <li>Assisted in setting up cloud-based data labs using Azure Synapse and Blob Storage</li>
-      <li>Created reusable course documentation in SharePoint and Confluence.</li>
-        </li>
-        <p><span class="highlight">Data Analyst – TVS Motors</span> (Jul 2021 – Jul 2022)</p>
-          <p> <span class="highlight">Project Overview:</span> </p>
+          <ul>
+            <li>Mentored students in Python (pandas, matplotlib) and big data tools like Hadoop and Spark</li>
+            <li>Conducted workshops on R, SAS, SPSS, covering regression, classification, and forecasting</li>
+            <li>Demo dashboards in Tableau for effective data storytelling</li>
+            <li>Analyzed performance data using Excel (VLOOKUP, Pivot Tables) and MATLAB, driving a 15% improvement in academic outcomes</li>
+            <li>Assisted in setting up cloud-based data labs using Azure Synapse and Blob Storage</li>
+            <li>Created reusable course documentation in SharePoint and Confluence.</li>
+          </ul>
+        </div>
+
+        <div class="experience-group">
+          <p><span class="highlight">Data Analyst – TVS Motors</span> (Jul 2021 – Jul 2022)</p>
+          <p><span class="highlight">Project Overview:</span></p>
           <div class="desc">Developed a cloud analytics solution on AWS to assess dealer sales performance and regional trends, automate reporting, and support segmentation strategies.</div>
           <span class="highlight">Key Contributions:</span>
-          <li>Built Tableau dashboards hosted on EC2 to monitor regional KPIs and dealer metrics</li>
-      <li>Developed Python-based ETL workflows on EC2 and ingested daily sales via API into PostgreSQL</li>
-      <li>Automated reporting pipelines using Airflow, maintaining data quality and SLA adherence</li>
-      <li>Conducted A/B testing on regional promotions, resulting in improved conversion metrics</li>
-      <li>Reconciled dealer sales data sourced from SAP systems, supporting enterprise-level reporting</li>
-      <li>Ensured GDPR compliance with proper access controls and data masking strategies</li>
-      <li>Participated in Agile sprints and full SDLC cycles, documenting workflows in Confluence and Jira</li>
-        </li>
-        <p><span class="highlight">Software Developer – Prog Solutions</span> (May 2020 – Jun 2021)</p>
-          <p> <span class="highlight">Project Overview:</span> </p>
+          <ul>
+            <li>Built Tableau dashboards hosted on EC2 to monitor regional KPIs and dealer metrics</li>
+            <li>Developed Python-based ETL workflows on EC2 and ingested daily sales via API into PostgreSQL</li>
+            <li>Automated reporting pipelines using Airflow, maintaining data quality and SLA adherence</li>
+            <li>Conducted A/B testing on regional promotions, resulting in improved conversion metrics</li>
+            <li>Reconciled dealer sales data sourced from SAP systems, supporting enterprise-level reporting</li>
+            <li>Ensured GDPR compliance with proper access controls and data masking strategies</li>
+            <li>Participated in Agile sprints and full SDLC cycles, documenting workflows in Confluence and Jira</li>
+          </ul>
+        </div>
+
+        <div class="experience-group">
+          <p><span class="highlight">Software Developer – Prog Solutions</span> (May 2020 – Jun 2021)</p>
+          <p><span class="highlight">Project Overview:</span></p>
           <div class="desc">Designed a healthcare reporting solution to automate patient intake and discharge analysis while maintaining HIPAA compliance and supporting operational transparency</div>
           <span class="highlight">Key Contributions:</span>
-          <li>Automated Excel-based reports using Python scripts and VBA macros, reducing manual effort by 60%</li>
-      <li>Created real-time dashboards with JavaScript (Chart.js) to track patient flow and capacity</li>
-      <li>Extracted and transformed clinical and billing data from Oracle EMR systems with optimized SQL</li>
-      <li>Scheduled daily reporting workflows using Airflow to ensure timely delivery and accuracy</li>
-      <li>Enforced HIPAA compliance through encryption, access control, and logging protocols</li>
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Key Projects</h2>
-      <ul>
-        <li><span class="highlight">Sales Insights Dashboard</span>
-          <div class="desc">Built an advanced Power BI dashboard that visualized KPIs across departments in real-time. Integrated data from Snowflake and AWS Glue to update visuals daily. Used DAX measures and row-level security to provide personalized views to executives, marketing, and operations teams.</div>
-        </li>
-        <li><span class="highlight">Lead Scoring Model</span>
-          <div class="desc">Designed a machine learning model in Python using scikit-learn to predict lead conversion probability. Trained on historical data, the model helped prioritize leads for the sales team, resulting in a 15% increase in qualified leads.</div>
-        </li>
-        <li><span class="highlight">ETL Framework on AWS</span>
-          <div class="desc">Created a reusable ETL pipeline framework using AWS Glue and Airflow to automate ingestion of structured/semi-structured data. Transformed raw data from AWS S3 and stored it in Snowflake, reducing manual efforts by 40%.</div>
-        </li>
-        <li><span class="highlight">Customer Segmentation Engine</span>
-          <div class="desc">Used K-Means clustering to segment customers based on purchase behavior. Created profiles for each segment, enabling marketing to launch targeted campaigns that improved engagement and conversion rates.</div>
-        </li>
-        <li><span class="highlight">Academic Performance Analyzer</span>
-          <div class="desc">Developed a tool using Python and Tableau to analyze student grade trends and attendance patterns. Enabled faculty to identify at-risk students early and adjust instructional strategies accordingly.</div>
-        </li>
-      </ul>
-    </section>
-    <h2>Technical Skills</h2>
-  <ul>
-  <section>
-    <li><strong>Programming & Query Languages:</strong>Python, R, SQL, JavaScript (Chart.js), VBA (Excel macros)</li>
-    <li><strong>Big Data Tools:</strong> Hadoop, Spark (PySpark)</li>
-    <li><strong>Databases:</strong> Snowflake, PostgreSQL, MySQL, Oracle</li>
-    <li><strong>Cloud Platforms:</strong> AWS (S3, Glue, Lambda, Athena), Azure (Blob Storage, ADF, Synapse), GCP (GCS, Cloud Composer)</li>
-    <li><strong>ETL & Datapipelines:</strong>Apache Airflow, SQL-based ETL scripts, Python (Pandas)</li>
-    <li><strong>BI & Visualization Tools:</strong> Power BI (DAX), Tableau, Looker, Excel (VLOOKUP, Pivot Tables)</li>
-    <li><strong>ERP & Enterprise Tools:</strong> SAP, SharePoint, Confluence</li>
-    <li><strong>Data Governance & Compliance:</strong> GDPR, IAM, Role-Based Access, Data Governance Frameworks</li>
-    <li><strong>Machine Learning & Statistics:</strong> A/B Testing, Regression, Classification, Forecasting, scikit-learn</li>
-    <li><strong>DevOps & Orchestration:</strong> Git (GitHub), Jenkins, Docker, Apache Airflow</li>
-    <li><strong>Project Management & Methodologies:</strong> SDLC, Agile (Scrum), Jira, Lucidchart</li>
-  </ul>
-</section>
-    <section>
-<h2>Education</h2>
-  <p><strong>Oklahoma Christian University, Edmond, OK</strong><br>
-  Master’s in Computer Science | Aug 2022 – Nov 2023</p>
-
-  <p><strong>JNTUH, Hyderabad, India</strong><br>
-  Bachelor’s in Computer Science | Aug 2017 – July 2021</p>
+          <ul>
+            <li>Automated Excel-based reports using Python scripts and VBA macros, reducing manual effort by 60%</li>
+            <li>Created real-time dashboards with JavaScript (Chart.js) to track patient flow and capacity</li>
+            <li>Extracted and transformed clinical and billing data from Oracle EMR systems with optimized SQL</li>
+            <li>Scheduled daily reporting workflows using Airflow to ensure timely delivery and accuracy</li>
+            <li>Enforced HIPAA compliance through encryption, access control, and logging protocols</li>
+          </ul>
+        </div>
       </section>
+
+      <section class="projects-section">
+        <h2>Key Projects</h2>
+        <ul>
+          <li><span class="highlight">Sales Insights Dashboard</span>
+            <div class="desc">Built an advanced Power BI dashboard that visualized KPIs across departments in real-time. Integrated data from Snowflake and AWS Glue to update visuals daily. Used DAX measures and row-level security to provide personalized views to executives, marketing, and operations teams.</div>
+          </li>
+          <li><span class="highlight">Lead Scoring Model</span>
+            <div class="desc">Designed a machine learning model in Python using scikit-learn to predict lead conversion probability. Trained on historical data, the model helped prioritize leads for the sales team, resulting in a 15% increase in qualified leads.</div>
+          </li>
+          <li><span class="highlight">ETL Framework on AWS</span>
+            <div class="desc">Created a reusable ETL pipeline framework using AWS Glue and Airflow to automate ingestion of structured/semi-structured data. Transformed raw data from AWS S3 and stored it in Snowflake, reducing manual efforts by 40%.</div>
+          </li>
+          <li><span class="highlight">Customer Segmentation Engine</span>
+            <div class="desc">Used K-Means clustering to segment customers based on purchase behavior. Created profiles for each segment, enabling marketing to launch targeted campaigns that improved engagement and conversion rates.</div>
+          </li>
+          <li><span class="highlight">Academic Performance Analyzer</span>
+            <div class="desc">Developed a tool using Python and Tableau to analyze student grade trends and attendance patterns. Enabled faculty to identify at-risk students early and adjust instructional strategies accordingly.</div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="skills-section">
+        <h2>Technical Skills</h2>
+        <ul>
+          <li><strong>Programming & Query Languages:</strong>Python, R, SQL, JavaScript (Chart.js), VBA (Excel macros)</li>
+          <li><strong>Big Data Tools:</strong> Hadoop, Spark (PySpark)</li>
+          <li><strong>Databases:</strong> Snowflake, PostgreSQL, MySQL, Oracle</li>
+          <li><strong>Cloud Platforms:</strong> AWS (S3, Glue, Lambda, Athena), Azure (Blob Storage, ADF, Synapse), GCP (GCS, Cloud Composer)</li>
+          <li><strong>ETL & Datapipelines:</strong>Apache Airflow, SQL-based ETL scripts, Python (Pandas)</li>
+          <li><strong>BI & Visualization Tools:</strong> Power BI (DAX), Tableau, Looker, Excel (VLOOKUP, Pivot Tables)</li>
+          <li><strong>ERP & Enterprise Tools:</strong> SAP, SharePoint, Confluence</li>
+          <li><strong>Data Governance & Compliance:</strong> GDPR, IAM, Role-Based Access, Data Governance Frameworks</li>
+          <li><strong>Machine Learning & Statistics:</strong> A/B Testing, Regression, Classification, Forecasting, scikit-learn</li>
+          <li><strong>DevOps & Orchestration:</strong> Git (GitHub), Jenkins, Docker, Apache Airflow</li>
+          <li><strong>Project Management & Methodologies:</strong> SDLC, Agile (Scrum), Jira, Lucidchart</li>
+        </ul>
+      </section>
+
+      <section class="education-section">
+        <h2>Education</h2>
+        <p><strong>Oklahoma Christian University, Edmond, OK</strong><br>
+        Master's in Computer Science | Aug 2022 – Nov 2023</p>
+
+        <p><strong>JNTUH, Hyderabad, India</strong><br>
+        Bachelor's in Computer Science | Aug 2017 – July 2021</p>
+      </section>
+    </div>
   </div>
 </body>
 </html>
